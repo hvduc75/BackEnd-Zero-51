@@ -33,8 +33,13 @@
                     <td><%= dataUser[i].lastName %></td>
                     <td>
                         <a href="/detail/user/<%= dataUser[i].id%>">Detail</a>
-                        <button type="button">Edit</button>
-                        <button type="button">Delete</button>
+                        <form style="display: inline-block;" action="/edit-user/<%= dataUser[i].id%>" method="GET">
+                            <button type="submit">Edit</button>
+                        </form>
+                        <form style="display: inline-block;" action="/delete-user" method="post">
+                            <input type="text" hidden value="<%= dataUser[i].id %>" name="userId" id="">
+                            <button type="submit">Delete</button>
+                        </form>
                     </td>
                 </tr>
             <%}%>
